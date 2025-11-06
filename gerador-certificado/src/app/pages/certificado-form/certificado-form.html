@@ -65,7 +65,7 @@
       </div>
 
       <app-secondary-buttom
-        [disabled]="atividade.length == 0"
+        [disabled]="!atividade || atividade.length == 0"
         titleButtom="Adicionar"
         phClass="ph ph-plus"
         (click)="adicionarAtividade()"
@@ -91,6 +91,6 @@
 
       </div>
     </div>
-    <app-primary-button titleButton="Gerar Certificado" [disabled]="!formValido()"  ></app-primary-button>
+    <app-primary-button titleButton="Gerar Certificado" [disabled]="!formValido()" (click)="submit()" ></app-primary-button>
   </div>
 </form>
