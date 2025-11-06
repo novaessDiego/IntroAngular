@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { SecondaryButtom } from "../../_components/secondary-buttom/secondary-buttom";
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CertificadoService } from '../../_services/certificado';
 import { Certificado } from '../../interface/certificado';
 
 @Component({
   selector: 'app-certificado',
-  imports: [SecondaryButtom, RouterLink],
+  imports: [SecondaryButtom],
   templateUrl: './certificado.html',
   styleUrl: './certificado.css'
 })
