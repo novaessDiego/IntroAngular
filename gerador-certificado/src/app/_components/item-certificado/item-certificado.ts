@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SecondaryButtom } from "../secondary-buttom/secondary-buttom";
 import { Router } from '@angular/router';
 
@@ -9,9 +9,12 @@ import { Router } from '@angular/router';
   styleUrl: './item-certificado.css'
 })
 export class ItemCertificado {
+  @Input() nomeAluno: string = '';
+  @Input() dataEmissao: string = '';
+  @Input() id: string = '';
   constructor(private router: Router){}
 
   redirecionaCertificado(){
-    this.router.navigate(['/certificados', 2]);
+    this.router.navigate(['/certificados/', this.id]);
   }
 }

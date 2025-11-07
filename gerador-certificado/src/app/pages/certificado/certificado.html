@@ -1,27 +1,33 @@
 <div class="d-flex flex-column align-items-center">
   <div class="d-flex justify-content-between align-items-center menu-certificado w-100">
     <div routerLink="/" class="d-flex align-items-center btn-voltar">
-          <i class="ph ph-arrow-left"></i>
-          <p class="m-0"> Voltar </p>
+      <i class="ph ph-arrow-left"></i>
+      <p class="m-0"> Voltar </p>
     </div>
-    <app-secondary-buttom></app-secondary-buttom>
+    <app-secondary-buttom
+      phClass="ph ph-download-simple"
+      titleButtom="Download"
+      (click)="downloadCertificado()"
+      ></app-secondary-buttom>
   </div>
-  <div class="certificado d-flex justify-content-center align-items-center">
-    <img class="icone-medalha" src="certificate/certificate_ribbon.png" alt="Icone de medalha">
-    <div class="conteudo-certificado">
-      <img class="img-assinatura" src="certificate/certificate_signature.svg" alt="assinatura">
-      <div class="info-certificado d-flex align-items-center flex-column">
-        <div class="titulo-subtitulo-certificado">
-          <h1>CERTIFICADO DE CONCLUSÃO</h1>
-          <p>Este certificado comprova que</p>
+  @if (certificado) {
+    <div #certificadoContainer class="certificado d-flex justify-content-center align-items-center">
+      <img class="icone-medalha" src="certificate/certificate_ribbon.png" alt="Icone de medalha">
+      <div class="conteudo-certificado">
+        <img class="img-assinatura" src="certificate/certificate_signature.svg" alt="assinatura">
+        <div class="info-certificado d-flex align-items-center flex-column">
+          <div class="titulo-subtitulo-certificado">
+            <h1>CERTIFICADO DE CONCLUSÃO</h1>
+            <p>Este certificado comprova que</p>
+          </div>
+          <p class="nome-aluno">{{certificado.nome}}</p>
+          <div class="lista-atividade-group">
+            <p class="lista-atividade-titulo">Concluiu com sucesso as seguintes atividades:</p>
+            <p class="lista-atividade">{{certificado.atividades.join(', ')}}</p>
+          </div>
         </div>
-        <p class="nome-aluno">Nome do Aluno</p>
-        <div class="lista-atividade-group">
-          <p class="lista-atividade-titulo">Concluiu com sucesso as seguintes atividades:</p>
-          <p class="lista-atividade">Lista de atividades e papapa pap apa ap ap</p>
-        </div>
+        <p class="data-emissao"> Emitido em {{certificado.dataEmissao}}</p>
       </div>
-      <p class="data-emissao"> Emitido em (Data)</p>
     </div>
-  </div>
+  }
 </div>
